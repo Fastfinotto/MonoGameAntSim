@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/aboveGround.png","C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/bin/Windows/Content/aboveGround.xnb","TextureProcessor","Texture2DContent",7534,2986069,0.4962162
+"C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/underGround.png","C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/bin/Windows/Content/underGround.xnb","TextureProcessor","Texture2DContent",8765,2986069,0.0686857

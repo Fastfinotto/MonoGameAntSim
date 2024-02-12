@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -22,8 +24,11 @@ public class SimulationGame : Game
     private Vector2 _underGroundPosition;
     private UnderGroundScene _underGroundScene;
     private Texture2D _underGroundTexture;
-
     private Vector2 _underGroundVelocity;
+    Random rnd = new Random();
+
+    private float rnd2 = 1;
+    // Random rnd3 = new Random();
     // ... (ToDo)
 
     public SimulationGame()
@@ -32,6 +37,11 @@ public class SimulationGame : Game
         Content.RootDirectory = "Content";
     }
     // ... (ToDo)
+    public double GetRandomNumber(double minimum, double maximum)
+    { 
+        Random random = new Random();
+        return random.NextDouble() * (maximum - minimum) + minimum;
+    }
 
     protected override void Initialize()
     {
@@ -42,20 +52,24 @@ public class SimulationGame : Game
         _aboveGroundTexture = Content.Load<Texture2D>("aboveGround");
         _underGroundTexture = Content.Load<Texture2D>("underGround");
 
-        var width = 1300;
-        var hight = 900;
+        var width = 1280;
+        var hight = 720;
         _aboveGroundScene = new AboveGroundScene(aboveGroundTexture, width, hight);
         _underGroundScene = new UnderGroundScene(underGroundTexture, width, hight);
         _currentScene = SceneType.AboveGround;
 
         _aboveGroundPosition = new Vector2(0, 0);
         _underGroundPosition = new Vector2(0, 0);
-        _aboveGroundVelocity = new Vector2(1, 1);
+        _aboveGroundVelocity = new Vector2(rnd2, rnd2);
         _underGroundVelocity = new Vector2(1, 1);
 
-        _graphics.PreferredBackBufferWidth = 1280; // Width in pixels
-        _graphics.PreferredBackBufferHeight = 720; // Height in pixels
+        _graphics.PreferredBackBufferWidth = width; // Width in pixels
+        _graphics.PreferredBackBufferHeight = hight; // Height in pixels - screen sizes
         _graphics.ApplyChanges();
+        
+        Texture2D antTexture = Content.Load<Texture2D>("ant" + rnd.Next(1, 4));
+        Ant ant = new Ant(antTexture, new Vector2(300, 300), _aboveGroundVelocity);
+        _aboveGroundScene.AddAnt(ant);
 
         base.Initialize();
     }
@@ -80,6 +94,9 @@ public class SimulationGame : Game
                 _underGroundScene.Update(gameTime);
                 break;
         }
+
+        rnd2 = (float)GetRandomNumber(-1.5, 2);
+        
 
         if (Keyboard.GetState().IsKeyDown(Keys.S))
             SwitchScene();

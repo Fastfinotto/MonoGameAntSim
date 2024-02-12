@@ -5,9 +5,17 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/aboveGround.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant1.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant2.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant3.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant4.png</File>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/underGround.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

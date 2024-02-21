@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,10 +12,18 @@ public class AboveGroundScene
     private Texture2D _texture;
     private Rectangle _destinationRectangle;
     private List<Ant> _ant;
-
-    private Vector2 _direction;
+    private float rnd2 = 1;
+    private float rnd3 = 1;
+    private int wonder = 1;
+    private int i = 1;
+    private float angle = 0;
+    
     // Other scene-specific variables
-
+    public int GetRandomNumber(int minimum, int maximum)
+    { 
+        Random random = new Random();
+        return random.Next(minimum, maximum);
+    }
     public AboveGroundScene(Texture2D texture, int width, int height)
     {
         _ant = new List<Ant>();
@@ -38,10 +48,61 @@ public class AboveGroundScene
         
         foreach (var ant in _ant)
         {
+            wonder = ant.Wonder;
+            if (i < 1)
+            {
+                i = wonder;
+            }
             // Update sprite position based on velocity
             if (ant.Position.X <= 1280 && ant.Position.Y <= 720)
             {
-                ant.Position += ant.Velocity;
+
+                if (i == 1)
+                {
+                    rnd2 = GetRandomNumber(0, 7); // 0: north, 1: northeast, 2: east, 3: southeast, 4: south, 5: southwest, 6: west, 7: northwest
+                }
+                switch (rnd2)
+                {
+                    case 0:
+                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
+                        angle = 180;
+                        break;
+                    case 1:
+                        ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y);; // move east
+                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
+                        angle = 225;
+                        break;
+                    case 2:
+                        ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y); // move east
+                        angle = 270;
+                        break;
+                    case 3:
+                        ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y); // move east
+                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
+                        angle = 315;
+                        break;
+                    case 4:
+                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
+                        angle = 0;
+                        break;
+                    case 5:
+                        ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
+                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
+                        angle = 45;
+                        break;
+                    case 6:
+                        ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
+                        angle = 90;
+                        break;
+                    case 7:
+                        ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
+                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
+                        angle = 135;
+                        break;
+                }
+
+                i--;
+                // ant.Position += SteerForce * new Vector2(rnd2, rnd2);
             }
             else if (ant.Position.X > 1280 || ant.Position.X < 0)
             {
@@ -53,7 +114,6 @@ public class AboveGroundScene
             }
             
         }
-        
         // Update logic for this scene
     }
 
@@ -61,9 +121,12 @@ public class AboveGroundScene
     {
         // Draw objects specific to this scene
         spriteBatch.Draw(_texture, Vector2.Zero, _destinationRectangle, Color.White);
+        Vector2 origin = new Vector2(0, 0);
+
         foreach (var ant in _ant)
         {
-            spriteBatch.Draw(ant.Texture, ant.Position, Color.White);
+            float move = MathHelper.ToRadians(angle);
+            spriteBatch.Draw(ant.Texture, ant.Position, null, Color.White, move, origin, 1.0f, SpriteEffects.None, 1);
         }
     }
 }

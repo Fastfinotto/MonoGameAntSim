@@ -13,7 +13,7 @@ public class Ant
     public Vector2 Direction { get; set; }
     public float Speed = 2;
     public float Steer = 2;
-    public float Wonder = 1;
+    public int Wonder = 20;
 
     public Ant(Texture2D texture, Vector2 position, Vector2 velocity)
     {

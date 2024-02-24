@@ -70,6 +70,7 @@ public class SimulationGame : Game
         Texture2D antTexture = Content.Load<Texture2D>("ant" + rnd.Next(1, 4));
         Ant ant = new Ant(antTexture, new Vector2(300, 300), _aboveGroundVelocity);
         _aboveGroundScene.AddAnt(ant);
+        _aboveGroundScene.AddAnt(ant);
 
         base.Initialize();
     }

@@ -17,6 +17,9 @@ public class AboveGroundScene
     private int wonder = 1;
     private int i = 1;
     private float angle = 0;
+    private int antNum = 0;
+    private int ii = 0;
+    
     
     // Other scene-specific variables
     public int GetRandomNumber(int minimum, int maximum)
@@ -48,13 +51,21 @@ public class AboveGroundScene
         
         foreach (var ant in _ant)
         {
+
+            if (ii > (_ant.Count - 1))
+            {
+                ii = 0;
+            }
+
+            antNum = ii;
+            
             wonder = ant.Wonder;
             if (i < 1)
             {
-                i = wonder;
+                i = GetRandomNumber(20, 100);
             }
             // Update sprite position based on velocity
-            if (ant.Position.X <= 1280 && ant.Position.Y <= 720)
+            if (_ant[antNum].Position.X <= 1280 && _ant[antNum].Position.Y <= 720)
             {
 
                 if (i == 1)
@@ -64,53 +75,54 @@ public class AboveGroundScene
                 switch (rnd2)
                 {
                     case 0:
-                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X, _ant[antNum].Position.Y - 1); // move north
                         angle = 180;
                         break;
                     case 1:
-                        ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y);; // move east
-                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X + 1, _ant[antNum].Position.Y);; // move east
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X, _ant[antNum].Position.Y - 1); // move north
                         angle = 225;
                         break;
                     case 2:
-                        ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y); // move east
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X + 1, _ant[antNum].Position.Y); // move east
                         angle = 270;
                         break;
                     case 3:
-                        ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y); // move east
-                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X + 1, _ant[antNum].Position.Y); // move east
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X, _ant[antNum].Position.Y + 1); // move south
                         angle = 315;
                         break;
                     case 4:
-                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X, _ant[antNum].Position.Y + 1); // move south
                         angle = 0;
                         break;
                     case 5:
-                        ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
-                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X - 1, _ant[antNum].Position.Y); // move west
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X, _ant[antNum].Position.Y + 1); // move south
                         angle = 45;
                         break;
                     case 6:
-                        ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X - 1, _ant[antNum].Position.Y); // move west
                         angle = 90;
                         break;
                     case 7:
-                        ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
-                        ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X - 1, _ant[antNum].Position.Y); // move west
+                        _ant[antNum].Position = new Vector2(_ant[antNum].Position.X, _ant[antNum].Position.Y - 1); // move north
                         angle = 135;
                         break;
                 }
 
+                ii++;
                 i--;
-                // ant.Position += SteerForce * new Vector2(rnd2, rnd2);
+                // _ant[antNum].Position += SteerForce * new Vector2(rnd2, rnd2);
             }
-            else if (ant.Position.X > 1280 || ant.Position.X < 0)
+            else if (_ant[antNum].Position.X > 1280 || _ant[antNum].Position.X < 0)
             {
-                ant.Position = new Vector2(0, ant.Position.Y);
+                _ant[antNum].Position = new Vector2(0, _ant[antNum].Position.Y);
             }
-            else if (ant.Position.Y > 720 || ant.Position.Y < 0)
+            else if (_ant[antNum].Position.Y > 720 || _ant[antNum].Position.Y < 0)
             {
-                ant.Position = new Vector2(ant.Position.X, 0);
+                _ant[antNum].Position = new Vector2(_ant[antNum].Position.X, 0);
             }
             
         }
@@ -126,7 +138,7 @@ public class AboveGroundScene
         foreach (var ant in _ant)
         {
             float move = MathHelper.ToRadians(angle);
-            spriteBatch.Draw(ant.Texture, ant.Position, null, Color.White, move, origin, 1.0f, SpriteEffects.None, 1);
+            spriteBatch.Draw(_ant[antNum].Texture, _ant[antNum].Position, null, Color.White, move, origin, 1.0f, SpriteEffects.None, 1);
         }
     }
 }

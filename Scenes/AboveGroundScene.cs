@@ -50,68 +50,67 @@ public class AboveGroundScene
     {
         int antNum = 0;
         int ms = (int)gameTime.TotalGameTime.TotalMilliseconds;
-        
+        if (i < 1)
+        {
+                
+            i = GetRandomNumber(20, 100, antNum, ms);
+        }
         
         foreach (var ant in _ant)
         {
 
-            if (ii > (_ant.Count - 1))
-            {
-                ii = 0;
-            }
-
-            antNum = ii;
-            
+           
             wonder = ant.Wonder;
-            if (i < 1)
-            {
-                i = GetRandomNumber(20, 100, antNum, ms);
-            }
+            // if (i < 1)
+            // {
+            //     
+            //     i = GetRandomNumber(20, 100, antNum, ms);
+            // }
             // Update sprite position based on velocity
-            if (ant.Position.X <= 1280 && ant.Position.Y <= 720)
+            if (ant.Position.X <= 1280 && ant.Position.Y <= 720 )
             {
 
                 if (i == 1)
                 {
-                    rnd2 = GetRandomNumber(0, 7, antNum, ms); // 0: north, 1: northeast, 2: east, 3: southeast, 4: south, 5: southwest, 6: west, 7: northwest
+                    ant.Direction = GetRandomNumber(0, 7, antNum, ms); // 0: north, 1: northeast, 2: east, 3: southeast, 4: south, 5: southwest, 6: west, 7: northwest
                 }
-                switch (rnd2)
+                switch (ant.Direction)
                 {
                     case 0:
                         ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
-                        angle = 180;
+                        ant.Looking = 0;
                         break;
                     case 1:
                         ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y);; // move east
                         ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
-                        angle = 225;
+                        ant.Looking = 45;
                         break;
                     case 2:
                         ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y); // move east
-                        angle = 270;
+                        ant.Looking = 90;
                         break;
                     case 3:
                         ant.Position = new Vector2(ant.Position.X + 1, ant.Position.Y); // move east
                         ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
-                        angle = 315;
+                        ant.Looking = 135;
                         break;
                     case 4:
                         ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
-                        angle = 0;
+                        ant.Looking = 180;
                         break;
                     case 5:
                         ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
                         ant.Position = new Vector2(ant.Position.X, ant.Position.Y + 1); // move south
-                        angle = 45;
+                        ant.Looking = 225;
                         break;
                     case 6:
                         ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
-                        angle = 90;
+                        ant.Looking = 270;
                         break;
                     case 7:
                         ant.Position = new Vector2(ant.Position.X - 1, ant.Position.Y); // move west
                         ant.Position = new Vector2(ant.Position.X, ant.Position.Y - 1); // move north
-                        angle = 135;
+                        ant.Looking = 315;
                         break;
                 }
 
@@ -140,7 +139,7 @@ public class AboveGroundScene
 
         foreach (var ant in _ant)
         {
-            float move = MathHelper.ToRadians(angle);
+            float move = MathHelper.ToRadians(ant.Looking);
             spriteBatch.Draw(ant.Texture, ant.Position, null, Color.White, move, origin, 1.0f, SpriteEffects.None, 1);
         }
     }

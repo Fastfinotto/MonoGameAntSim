@@ -26,6 +26,7 @@ public class SimulationGame : Game
     private Texture2D _underGroundTexture;
     private Vector2 _underGroundVelocity;
     Random rnd = new Random();
+    
 
     private float rnd2 = 1;
     // Random rnd3 = new Random();
@@ -48,6 +49,7 @@ public class SimulationGame : Game
         // ... (ToDo)
         var aboveGroundTexture = Content.Load<Texture2D>("aboveGround");
         var underGroundTexture = Content.Load<Texture2D>("underGround");
+        var foodTex2 = Content.Load<Texture2D>("ant food2");
 
         _aboveGroundTexture = Content.Load<Texture2D>("aboveGround");
         _underGroundTexture = Content.Load<Texture2D>("underGround");
@@ -66,12 +68,34 @@ public class SimulationGame : Game
         _graphics.PreferredBackBufferWidth = width; // Width in pixels
         _graphics.PreferredBackBufferHeight = hight; // Height in pixels - screen sizes
         _graphics.ApplyChanges();
+
+        Texture2D moundTexture = Content.Load<Texture2D>("antMound");
+        AntMound mound = new AntMound(moundTexture, new Vector2(200, 200), 0);
+        _aboveGroundScene.AddMound(mound);
         
         Texture2D antTexture = Content.Load<Texture2D>("ant" + rnd.Next(1, 4));
         for (int i = 0; i < 50; i++)
         {
             Ant ant = new Ant(antTexture, new Vector2(300, 300), _aboveGroundVelocity, 2, 90);
             _aboveGroundScene.AddAnt(ant);
+            Thread.Sleep(50);
+        }
+
+        Texture2D foodTexture1 = Content.Load<Texture2D>("ant food1");
+        Texture2D foodTexture2 = Content.Load<Texture2D>("ant food2");
+        Texture2D foodTexture3 = Content.Load<Texture2D>("ant food3");
+        Texture2D foodTexture4 = Content.Load<Texture2D>("ant food4");
+        Texture2D foodTexture5 = Content.Load<Texture2D>("ant food5");
+        Texture2D foodTexture6 = Content.Load<Texture2D>("ant food6");
+        Texture2D foodTexture7 = Content.Load<Texture2D>("ant food7");
+        Texture2D foodTexture8 = Content.Load<Texture2D>("ant food8");
+        Texture2D foodTexture9 = Content.Load<Texture2D>("ant food9");
+        Texture2D foodTexture10 = Content.Load<Texture2D>("ant food10");
+        
+        for (int j = 0; j < 3; j++)
+        {
+            AntFood food = new AntFood(foodTexture1, new Vector2(rnd.Next(50, 950), rnd.Next(50, 550)), 1000);
+            _aboveGroundScene.AddFood(food);
         }
         
         

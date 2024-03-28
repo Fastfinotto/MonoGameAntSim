@@ -41,3 +41,14 @@ C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net
 C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant2.xnb
 C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant3.xnb
 C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant4.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food1.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food10.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food2.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food3.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food4.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food5.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food6.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food7.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food8.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\ant food9.xnb
+C:\Users\Benjamin Home\RiderProjects\MonoGameAntSim\MonoGameAntSim\bin\Debug\net6.0-windows\Content\antMound.xnb

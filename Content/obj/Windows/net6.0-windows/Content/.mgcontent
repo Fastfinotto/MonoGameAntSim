@@ -5,13 +5,35 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/aboveGround.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food1.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food10.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food2.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food3.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food4.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food5.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food6.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food7.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food8.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant food9.png</File>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant1.png</File>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant2.png</File>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant3.png</File>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/ant4.png</File>
+    <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/antMound.png</File>
     <File>C:/Users/Benjamin Home/RiderProjects/MonoGameAntSim/MonoGameAntSim/Content/underGround.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

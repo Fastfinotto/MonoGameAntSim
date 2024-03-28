@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Security.Cryptography.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Color = Microsoft.Xna.Framework.Color;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace MonoGameAntSim.Scenes;
 
@@ -11,7 +15,9 @@ public class AboveGroundScene
 {
     private Texture2D _texture;
     private Rectangle _destinationRectangle;
+    private List<AntMound> _antMounds;
     private List<Ant> _ant;
+    private List<AntFood> _antFoods;
     private float rnd2 = 1;
     private float rnd3 = 1;
     private int wonder = 1;
@@ -30,14 +36,26 @@ public class AboveGroundScene
     public AboveGroundScene(Texture2D texture, int width, int height)
     {
         _ant = new List<Ant>();
+        _antFoods = new List<AntFood>();
         _texture = texture;
         _destinationRectangle = new Rectangle(0, 0, width, height);
-        
+        _antMounds = new List<AntMound>();
+
         // Initialize other scene-specific variables
     }
     public void AddAnt(Ant ant)
     {
         _ant.Add(ant);
+    }
+
+    public void AddMound(AntMound mound)
+    {
+        _antMounds.Add(mound);
+    }
+
+    public void AddFood(AntFood food)
+    {
+        _antFoods.Add(food);
     }
 
     public void LoadContent(ContentManager content)
@@ -128,6 +146,15 @@ public class AboveGroundScene
             }
             
         }
+
+        foreach (var food in _antFoods)
+        {
+            if (food.FoodLeft < 900)
+            {
+                
+            }
+        }
+        
         // Update logic for this scene
     }
 
@@ -136,6 +163,20 @@ public class AboveGroundScene
         // Draw objects specific to this scene
         spriteBatch.Draw(_texture, Vector2.Zero, _destinationRectangle, Color.White);
         Vector2 origin = new Vector2(0, 0);
+
+        foreach (var mound in _antMounds)
+        {
+            spriteBatch.Draw(mound.Texture, mound.Position, null, Color.White, 0, origin, 0.2f, SpriteEffects.None, 1);
+        }
+        
+        foreach (var food in _antFoods)
+        {
+            if (food.FoodLeft < 900)
+            {
+                
+            }
+            spriteBatch.Draw(food.Texture, food.Position, null, Color.White, 0, origin, 0.3f, SpriteEffects.None, 1 );
+        }
 
         foreach (var ant in _ant)
         {
